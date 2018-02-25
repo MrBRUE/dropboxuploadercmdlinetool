@@ -1,0 +1,8 @@
+build.xml - will create / gather all the jar files required (dest. folder see build file)
+test.txml - just meant for testing the created jar
+
+what it is:
+very simple file uploading tool - you can use the class AcquireKeyToken that has been put into the main package of this project for your convenience to get hold of the (long lasting) key token for DropBox
+
+how to use:
+build the target directory first, then use it with ANT (see test.xml)

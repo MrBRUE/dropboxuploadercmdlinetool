@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="test" default="run" basedir="dist" xmlns:ac="antlib:net.sf.antcontrib">
+
+	<description>
+		
+		This build file will loop through any ANT path, like a complex set of files, and deal with each one seperately.
+	    The ant-contrib version is 1.03b. The jar that contains the custom ANT task was built using build.xml in the Eclipse project root.
+	
+	</description>
+  
+    <taskdef resource="net/sf/antcontrib/antlib.xml">
+      <classpath>
+            <fileset dir="${basedir}"/>
+      </classpath>
+  </taskdef>
+  
+  	<taskdef name="upload" classname="com.moe.getjiggy.DBUploader">
+		<classpath>
+			<pathelement location="upDB.jar" />
+			<pathelement location="json_simple-1.1.jar" />
+			<pathelement location="httpmime-4.0.3.jar"/>
+			<pathelement location="httpcore-4.0.1.jar"/>
+			<pathelement location="httpclient-4.0.3.jar"/>
+			<pathelement location="dropbox-java-sdk-1.3.1.jar"/>
+			<pathelement location="dropbox-core-sdk-1.7.6.jar"/>
+			<pathelement location="jackson-core-2.2.3.jar"/>
+			<pathelement location="ant-contrib.jar"/>
+		</classpath>
+	</taskdef>
+
+
+	
+	<target name="run">
+	
+      <for param="file" keepgoing="true">
+        <path>
+          <fileset dir="c:\Temp" includes="*.*"/>
+        </path>
+        <sequential>
+            <upload file2upload="@{file}" appidentifier="flourishApp"  />
+         </sequential>
+      </for>      
+	
+	
+	</target>
+
+</project>
